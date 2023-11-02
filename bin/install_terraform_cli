@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_ROOT = '/workspace/terraform-beginner-bootcamp-2023'
+PROJECT_ROOT = '/workspace/CloudOps-Week4-ArgoCD-CircleCI/ToDo-App'
 
 cd /workspace
 
