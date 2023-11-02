@@ -15,6 +15,18 @@ tasks:
       source ./bin/install_aws_cli
       source ./bin/set_tf_alias
       
+  - name: kubectl-cli
+    before:
+      cd $PROJECT_ROOT
+      source ./bin/install_kubectl_cli
+
+  - name: http-server
+    before: |
+      cd $PROJECT_ROOT
+      npm install --global http-server
+    command: 
+      http-server    
+
 vscode:
   extensions:
     - amazonwebservices.aws-toolkit-vscode

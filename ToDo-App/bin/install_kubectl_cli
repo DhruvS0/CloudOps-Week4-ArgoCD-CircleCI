@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+PROJECT_ROOT = '/workspace/CloudOps-Week4-ArgoCD-CircleCI/ToDo-App'
+
+cd /workspace
+
+# Check if kubectl is already installed
+if command -v kubectl &> /dev/null
+then
+    echo "kubectl is already installed."
+    exit 0
+fi
+
+# Determine the platform (e.g., Linux distribution)
+if [ -f /etc/os-release ]; then
+    # Most modern Linux distributions
+    source /etc/os-release
+    PLATFORM=$ID
+else
+    # For older Linux distributions
+    PLATFORM=$(uname -s | tr '[:upper:]' '[:lower:]')
+fi
+
+# Check for supported platforms
+case $PLATFORM in
+    "ubuntu" | "debian")
+        sudo apt-get update
+        sudo apt-get install -y apt-transport-https
+        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+        echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+        sudo apt-get update
+        sudo apt-get install -y kubectl
+        ;;
+
+    "fedora" | "rhel" | "centos")
+        sudo yum install -y kubectl
+        ;;
+
+    "darwin")
+        # macOS using Homebrew
+        brew install kubectl
+        ;;
+
+    *)
+        echo "Unsupported platform: $PLATFORM"
+        exit 1
+        ;;
+esac
+
+# Verify installation
+if command -v kubectl &> /dev/null
+then
+    echo "kubectl has been successfully installed."
+else
+    echo "Installation of kubectl failed."
+    exit 1
+fi
