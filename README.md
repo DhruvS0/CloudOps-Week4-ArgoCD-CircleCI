@@ -26,8 +26,11 @@ Our virtuoso developer creates a new feature, turning their creative ideas into 
 As if by magic, CircleCI takes notice of this change in the application code repository and raises its baton. It conducts a four-part symphony of tasks:
 
 🔸 **Test (application code)**: The first violin tests the application code to ensure it's in perfect tune.
+
 🔸 **Build (Docker image)**: The orchestra fashions a Docker image, packaging the application with the new feature.
+
 🔸 **Push (Push to Docker registry)**: The ensemble pushes this new image to a Docker registry for safekeeping.
+
 🔸 **Update Manifest (update the manifest repo with a new TAG)**: The conductor updates the Kubernetes manifest repository with a new TAG, indicating the latest version of the application.
 
 🎶 **Act 3: ArgoCD's Ballet of Synchronization** 🎶
