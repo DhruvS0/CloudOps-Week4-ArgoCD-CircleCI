@@ -1,5 +1,6 @@
 # CloudOps-Week4-Using CircleCI, ArgoCD, and GitOps to deploy a Dockerized application on an AWS EKS cluster.
 
+## Architecture
 ![Alt text](1688913878462-finale.gif)
 
 **Image credits: [Ankit Jodhani](https://www.linkedin.com/in/ankit-jodhani/)**
@@ -52,7 +53,17 @@ We will need the following accounts to start with the project.
 - CircleCI Account
 - Docker Account
 
+## A Step-by-step guide
+Let's now look at the detailed instructions for putting that architecture I just shown you into practice.
+- [Step1 - Provisioning Amazon EKS Cluster using Terraform](journal/Step1.md)
+- [Step2 - Configure pipeline (CircleCI) and GitHub for Kube manifest](journal/Step2.md)
+- [Step3 - Installation and Syncing of ArgoCD on the EKS cluster](journal/Step3.md)
 ## Final Outcome
 The application we have hosted on the Kubernetes cluster on AWS using CircleCI and ArgoCD.
 
 ![Alt text](image-2.png)
+
+# Summary
+- For our deployment, we started by setting up and provisioning an Amazon EKS cluster using Terraform. 
+- After that, we set up our pipeline to use CircleCI and GitHub, which allowed the Kubernetes manifests to seamlessly integrate with our project's continuous integration and deployment process. 
+- This strategy ensures that our dockerized application on the AWS EKS cluster will be deployed in a simplified and effective manner.
